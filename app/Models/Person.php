@@ -14,32 +14,35 @@ class Person extends Model
     protected $fillable = [
         'mother_id', 'father_id',
         'lastname', 'name', 'middlename',
-        'bithdate',
+        'birthday',
         'gender'
     ];
 
     /**
      * Summary of children
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function children()
     {
-        return $this->hasMany(Location::class, 'parent_id','id');
+        return collect([
+            $this->hasMany(Person::class, 'mother_id','id'),
+            $this->hasMany(Person::class, 'father_id','id')
+        ]);
     }
 
+
     /**
-     * Summary of mother
+     * Mother
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function mother(){
-        return $this->belongsTo(Location::class, 'parent_id','mother_id');
+        return $this->belongsTo(Person::class, 'mother_id','id');
     }
 
     /**
-     * Summary of father
+     * Father
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function father(){
-        return $this->belongsTo(Location::class, 'parent_id','father_id');
+        return $this->belongsTo(Person::class, 'father_id','id');
     }
 }

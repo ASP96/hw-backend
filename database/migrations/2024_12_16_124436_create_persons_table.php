@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('lastname')->comment("Фамилия");
             $table->string('name')->comment("Имя");
             $table->string('middlename')->comment("Отчество")->nullable();
-            $table->date('birthdate')->comment('День рождения')->nullable();
+            $table->date('birthday')->comment('День рождения')->nullable();
             $table->string('gender')->nullable();
 
             $table->timestamps();

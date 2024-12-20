@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\VendorResource;
-use App\Models\Vendor;
+use App\Models\Person;
 use Illuminate\Http\Request;
+use App\Http\Resources\PersonResource;
 
-class VendorController extends Controller
+class PersonController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return VendorResource::collection(Vendor::all());
+        return PersonResource::collection(Person::all());
     }
 
     /**
@@ -28,16 +28,15 @@ class VendorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Vendor $vendor)
+    public function show(Person $person)
     {
-        // dd($vendor);
-        return new VendorResource($vendor);
+        return new PersonResource($person);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Vendor $vendor)
+    public function update(Request $request, Person $person)
     {
         //
     }
@@ -45,7 +44,7 @@ class VendorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Vendor $vendor)
+    public function destroy(Person $person)
     {
         //
     }

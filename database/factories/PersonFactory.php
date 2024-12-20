@@ -18,15 +18,15 @@ class PersonFactory extends Factory
      */
     public function definition(): array
     {
-        if (!$this->gender)
+        if (!in_array($this->gender, ['male', 'female']))
             $gender = fake()->randomElement(['male', 'female']);
-
+        
         return [
             "name"=> fake()->firstName($gender),
             "middlename" => fake()->middleName($gender),
             "lastname" => fake()->lastName($gender),
             "gender" => $gender,
-            "birthdate" => fake()->date(),
+            "birthday" => fake()->date(),
         ];
     }
 
@@ -41,6 +41,7 @@ class PersonFactory extends Factory
         if (!in_array($gender, ['male', 'female'])) {
             throw new \DomainException('Error gender');
         }
+        $this->gender = $gender;
         
         return $this->state(fn (array $attributes) => [
             'gender' => $gender
