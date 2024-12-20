@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
- *  @mixin \App\Models\HardwareModel
+ *  @mixin \App\Models\VendorModel
  */
-class HardwareModelResource extends JsonResource
+class VendorModelResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

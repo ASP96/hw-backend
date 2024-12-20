@@ -23,9 +23,15 @@ class PersonResource extends JsonResource
             "name" => $this->name,
             "middlename" => $this->middlename,
             "birthday" => $this->birthday,
+            "age" => $this->age(),
             "gender" => $this->gender,
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at,
+            "mother_id" => $this->mother_id,
+            "father_id" => $this->father_id,
+            "mother" => new PersonResource($this->mother),
+            "father" => new PersonResource($this->father),
+            // "children" => PersonResource::collection($this->children),
         ];
     }
 }

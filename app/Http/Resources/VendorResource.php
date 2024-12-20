@@ -4,8 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Models\HardwareModel;
-use App\Http\Resources\HardwareModelResource;
+use App\Http\Resources\VendorModelResource;
 
 /**
  * @mixin \App\Models\Vendor
@@ -27,7 +26,7 @@ class VendorResource extends JsonResource
             "country" => $this->country,
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at,
-            "models" => HardwareModelResource::collection($this->models)
+            "models" => VendorModelResource::collection($this->models)
         ];
     }
 }

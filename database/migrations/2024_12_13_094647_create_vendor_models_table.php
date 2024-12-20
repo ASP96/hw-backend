@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hardware_models', function (Blueprint $table) {
+        Schema::create('vendor_models', function (Blueprint $table) {
             $table->id();
             //$table->bigInteger('vendor_id')->nullable();
             $table->foreignId('vendor_id')->nullable()->constrained()->nullOnDelete();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hardware_models');
+        Schema::dropIfExists('vendor_models');
     }
 };

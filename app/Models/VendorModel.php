@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Vendor;
 
-class HardwareModel extends Model
+class VendorModel extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = 'hardware_models';
+    protected $table = 'vendor_models';
 
     protected $fillable = [
         'vendor_id', 'head'
