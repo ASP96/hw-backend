@@ -14,7 +14,10 @@ class VendorController extends Controller
      */
     public function index()
     {
-        return VendorResource::collection(Vendor::all());
+        return VendorResource::collection(
+            Vendor::all()
+            ->sortBy('name')
+        );
     }
 
     /**

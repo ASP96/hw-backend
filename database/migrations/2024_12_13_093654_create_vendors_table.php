@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('vendors', function (Blueprint $table) {
             $table->id();
             $table->string('name')->comment('Name of vendor');
-            $table->string('country')->comment('Country');
+            $table->string('country')->comment('Country')->nullable();
             
             $table->timestamps();
             
