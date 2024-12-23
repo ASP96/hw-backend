@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\LocationController;
 use App\Http\Controllers\api\HardwareGroupController;
 use App\Http\Controllers\api\PersonController;
 use App\Http\Controllers\api\VendorController;
@@ -18,3 +19,5 @@ Route::apiResource('person', PersonController::class);
 Route::apiResource('hardware-group', HardwareGroupController::class);
 
 //->middleware('auth:sanctum');
+
+Route::apiResource('location', LocationController::class);
