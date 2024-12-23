@@ -15,6 +15,22 @@ class Organization extends Model
     protected $fillable = [
         'id', // TODO: comment this in production
         'name', 'name_full'
-        
     ];
+
+    /**
+     * Parent
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function parent(){
+        return $this->belongsTo(Organization::class, 'parent_id', 'id');
+    }
+
+
+    /**
+     * Summary of children
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function children(){
+        return $this->hasMany(Organization::class, 'parent_id', 'id');
+    }
 }

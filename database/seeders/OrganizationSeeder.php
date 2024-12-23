@@ -13,6 +13,11 @@ class OrganizationSeeder extends Seeder
      */
     public function run(): void
     {
-        Organization::factory()->count(30)->create();
+        Organization::factory()->count(30)->create()
+        ->each(function($org){
+            $org->children()->saveMany(
+                Organization::factory()->count(4)->make()
+            );
+        });
     }
 }
