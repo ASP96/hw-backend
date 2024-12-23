@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PersonSeeder::class);
         $this->call(OrganizationSeeder::class);
         $this->call(LocationSeeder::class);
+        $this->call(HardwareGroupSeeder::class);
 
     }
 }
