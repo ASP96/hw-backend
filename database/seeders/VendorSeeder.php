@@ -75,7 +75,10 @@ class VendorSeeder extends Seeder
                 'name' => 'Watchguard',
                 'country' => 'США',
                 'models' => ['Watchguard XTM 530']
-            ]
+            ],
+            ['name' => 'ubiquiti', 'country'=> 'США',
+                'models' => ['Unifi AP long range (LR)', 'Unifi AP']
+            ],
         ];
         $i = 0;
         foreach ($vendors as $item) {

@@ -20,7 +20,7 @@ class PersonFactory extends Factory
     {
         if (!in_array($this->gender, ['male', 'female']))
             $gender = fake()->randomElement(['male', 'female']);
-        
+        echo $gender ."  ";
         return [
             "name"=> fake()->firstName($gender),
             "middlename" => fake()->middleName($gender),

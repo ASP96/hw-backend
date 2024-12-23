@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\LocationController;
 use App\Http\Controllers\api\PersonController;
 use App\Http\Controllers\api\VendorController;
 use Illuminate\Http\Request;
@@ -15,3 +16,5 @@ Route::apiResource('vendor', VendorController::class);
 Route::apiResource('vendor/{vendor}/models', VendorModelController::class);
 Route::apiResource('person', PersonController::class);
 //->middleware('auth:sanctum');
+
+Route::apiResource('location', LocationController::class);
