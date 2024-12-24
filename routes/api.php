@@ -3,8 +3,10 @@
 use App\Http\Controllers\api\LocationController;
 use App\Http\Controllers\api\HardwareGroupController;
 use App\Http\Controllers\api\PersonController;
+use App\Http\Controllers\api\ProfilacticaController;
 use App\Http\Controllers\api\VendorController;
 use App\Http\Controllers\OrganizationController;
+use App\Models\Profilactica;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\VendorModelController;
@@ -23,4 +25,5 @@ Route::apiResource('hardware-group', HardwareGroupController::class);
 
 Route::apiResource('location', LocationController::class);
 Route::apiResource('organization', OrganizationController::class);
+Route::apiResource('profilactica', ProfilacticaController::class);
 
