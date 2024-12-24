@@ -22,11 +22,19 @@ class VendorSeeder extends Seeder
                 'country' => 'США',
                 'models' => ['2811', '3845', '3945', 'WS-C2960G-24TC-L', 'WS-C2960G-48TC-L', 'WS-C3560G-24TS', 'WS-C3560-24TS', 'WS-C2960-24-S']
             ],
-            ['name' => 'D-Link', 'country' => 'Тайвань'],
+            [
+                'name' => 'D-Link', 'country' => 'Тайвань',
+                'models' => ['DES-1016A', 'DES-1016D', 'DES-1008A']
+            ],
             [
                 'name' => 'SNR',
                 'country' => 'Россия',
                 'models' => ['CVT-100A', 'CVT-100B', 'SNR-SFP-1000']
+            ],
+            [
+                'name' => 'Keenetic',
+                'country' => 'Гонконг',
+                'models' => ['Ultra KN-1811']
             ],
             [
                 'name' => 'TP-Link',
@@ -54,7 +62,21 @@ class VendorSeeder extends Seeder
                 'country' => 'Латвия',
                 'models' => ['RB951ui-2hnd']
             ],
-            ['name' => 'Lenovo', 'country' => 'Китай'],
+            [
+                'name' => 'Lenovo',
+                'country' => 'Китай',
+                'models' => [
+                    'ThinkCentre m93z'
+                ]
+            ],
+            [
+                'name' => 'iRU',
+                'country' => 'Россия',
+            ],
+            [
+                'name' => 'KraftWay',
+                'country' => 'Россия',
+            ],
             ['name' => 'Dell', 'country' => 'США'],
             ['name' => 'Logitech', 'country' => null],
             ['name' => 'Acer', 'country' => 'Корея'],
@@ -76,10 +98,29 @@ class VendorSeeder extends Seeder
                 'country' => 'США',
                 'models' => ['Watchguard XTM 530']
             ],
-            ['name' => 'ubiquiti', 'country'=> 'США',
-                'models' => ['Unifi AP long range (LR)', 'Unifi AP']
+            [
+                'name' => 'ubiquiti',
+                'country'=> 'США',
+                'models' => [
+                    'Unifi AP long range (LR)',
+                    'Unifi AP'
+                ]
+            ],
+            ['name' => 'Huawei', 'country'=> 'Китай',
+            'models' => ['NetEngine 8000']
+            ],
+            [
+                'name'=> 'Sigrand',
+                'country'=> 'Россия',
+                'models' => ['SG-17B-3.3']
+            ],
+            [
+                'name'=> 'Usergate',
+                'country'=> 'Россия',
+                'models' => ['E1000']
             ],
         ];
+
         $i = 0;
         foreach ($vendors as $item) {
             echo $i++ . " " . $item['name'] . "\n";
