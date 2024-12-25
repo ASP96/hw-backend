@@ -7,14 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Vendor;
 
+/**
+ * @var int $vendor_id ID-производителя
+ * @var string $head Название модели
+ * @var boolean $end_of_life Окончание срока производства. Больше не производится
+ */
 class VendorModel extends Model
 {
     use HasFactory, SoftDeletes;
     protected $table = 'vendor_models';
 
     protected $fillable = [
-        'vendor_id', 'head'
+        'vendor_id', 'head',
+        'end_of_life'
     ];
+
+    protected $casts = [
+        'end_of_life'=> 'boolean'
+    ];
+
 
 
     /**

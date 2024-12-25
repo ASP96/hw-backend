@@ -17,11 +17,10 @@ return new class extends Migration
             $table->foreignId('vendor_id')->nullable()->constrained()->nullOnDelete();
 
             $table->string('head');
+            $table->boolean('end_of_life')->default(false)->comment('Снята с производства');
 
             $table->timestamps();
             $table->softDeletes();
-
-            
         });
     }
 

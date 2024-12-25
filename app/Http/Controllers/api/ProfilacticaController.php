@@ -39,7 +39,7 @@ class ProfilacticaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $request, $profilactica)
+    public function show(Request $request, Profilactica $profilactica)
     {
         return new ProfilacticaResource($profilactica);
     }

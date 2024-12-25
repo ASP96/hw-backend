@@ -21,6 +21,7 @@ class VendorModelResource extends JsonResource
             'id' => $this->id,
             'vendor_id' => $this->vendor_id,
             'head' => $this->head,
+            'end_of_life' => $this->end_of_life,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];

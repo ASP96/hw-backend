@@ -32,7 +32,7 @@ class HardwareGroupSeeder extends Seeder
                             ['name'=> 'Шкаф напольный'],
                             ['name'=> 'Шкаф настенный']
                         ]
-                ],
+                    ],
                     ['name' => 'Firewall (МСЭ)'],
                     [
                         'name' => 'Коммутаторы сетевые',
@@ -143,6 +143,12 @@ class HardwareGroupSeeder extends Seeder
                                 ]
                             ]
                         ]
+                                    ],
+                    [
+                        'name' => 'Конвертеры инфтерфейсов',
+                        'children' => [
+                            ['name' => 'E1/Ethernet']
+                        ]
                     ]
                 ]
             ],
@@ -248,38 +254,12 @@ class HardwareGroupSeeder extends Seeder
                             ]
                         ],
                         ['name' => 'USB-камеры'],
+                        ['name' => 'Внешний USB-CDROM'],
                     ]
                 ]
         ];
 
-
-        // dd($groups);
         self::fillDB($groups);
-        /*
-                foreach ($groups as $group) {
-                    echo "\n" . $group['name'];
-                    $new_group = HardwareGroup::factory()->create([
-                        'name' => $group['name']
-                    ]);
-                    // dd($group);
-
-                    if (isset($group['children']) && sizeof($group['children']))
-                    {
-                        // echo "\n::::: ";
-                        // print_r($group['children']);
-
-                        self::createHWGroup($new_group, $group['children']);
-                        // ->each(function ($gr) {
-                        //     if (isset($group['children']) && sizeof($group['children']))
-                        //         self::createHWGroup($gr, $group['children']);
-                        // });
-                    }
-                    else
-                    {
-                        echo "\n++++++". $group['name'] ." hasn't children";
-                    }
-                }
-                */
     }
 
     public static function fillDB($groups)

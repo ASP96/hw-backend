@@ -21,7 +21,9 @@ class ProfilacticaResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'name_short' => $this->name_short,
-            'name_full' => $this->name_full
+            'name_full' => $this->name_full,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at
         ];
     }
 }

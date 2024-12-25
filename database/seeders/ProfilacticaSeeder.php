@@ -13,7 +13,16 @@ class ProfilacticaSeeder extends Seeder
      */
     public function run(): void
     {
-        Profilactica::factory(5)
-            ->create();
+        $profilactics = [
+            ['name' => 'Ежемесячное', 'name_short' => 'ТО-1', 'name_full' => null],
+            
+            ['name' => 'Квартальное', 'name_short' => 'КВ', 'name_full' => null],
+            ['name' => 'Годовое', 'name_short' => 'ТО-2', 'name_full' => null],
+        ];
+        
+        foreach ($profilactics as $item){
+            Profilactica::create($item);
+        }
+        
     }
 }

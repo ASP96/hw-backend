@@ -119,6 +119,14 @@ class VendorSeeder extends Seeder
                 'country'=> 'Россия',
                 'models' => ['E1000']
             ],
+            [
+                'name' => 'Cronyx',
+                'country' => 'Россия'
+            ],
+            [
+                'name' => 'Zelax',
+                'country' => 'Россия'
+            ],
         ];
 
         $i = 0;
