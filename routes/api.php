@@ -6,7 +6,7 @@ use App\Http\Controllers\api\PersonController;
 use App\Http\Controllers\api\Profilactica\ConsumableController;
 use App\Http\Controllers\api\ProfilacticaController;
 use App\Http\Controllers\api\VendorController;
-use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\api\OrganizationController;
 use App\Models\Profilactica;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
