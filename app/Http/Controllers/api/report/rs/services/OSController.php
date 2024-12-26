@@ -1,23 +1,19 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\api\report\rs\services;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\VendorResource;
-use App\Models\Vendor;
+use App\Models\Report\RS\Services\OperationSystem;
 use Illuminate\Http\Request;
 
-class VendorController extends Controller
+class OSController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return VendorResource::collection(
-            Vendor::all()
-            ->sortBy('name')
-        );
+        return OperationSystem::all()->sortBy('name');
     }
 
     /**
@@ -25,22 +21,21 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Vendor $vendor)
+    public function show(OperationSystem $os)
     {
-        // dd($vendor);
-        return new VendorResource($vendor);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Vendor $vendor)
+    public function update(Request $request, OperationSystem $os)
     {
         //
     }
@@ -48,7 +43,7 @@ class VendorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Vendor $vendor)
+    public function destroy(OperationSystem $os)
     {
         //
     }

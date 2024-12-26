@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // 1.
         // Ответственный за сетевой узел
         Schema::create('report_rs_services_person', function (Blueprint $table) {
             $table->id();
@@ -26,6 +27,7 @@ return new class extends Migration
 
         });
 
+        // 2.
         // сетевой узел
         Schema::create('report_rs_services_items', function (Blueprint $table) {
             $table->id();
@@ -42,6 +44,7 @@ return new class extends Migration
             $table->softDeletes();
         });
 
+        // 3.
         // открытые порты и программы на этих портах на узле
         Schema::create('report_rs_services_ports', function (Blueprint $table) {
             $table->id();
@@ -58,6 +61,7 @@ return new class extends Migration
             $table->softDeletes();
         });
 
+        // 4.
         // сетевые реквизиты узла
         Schema::create('report_rs_services_networks', function(Blueprint $table) {
             $table->id();
@@ -73,6 +77,7 @@ return new class extends Migration
             $table->softDeletes();
         });
 
+        // 5.
         Schema::create('report_rs_services_ip_addresses', function(Blueprint $table) {
             $table->id();
             $table->foreignId('person_id')->constrained(
@@ -86,7 +91,7 @@ return new class extends Migration
             $table->timestamps();
         });
         
-
+        // 6.
         Schema::create('report_rs_services_operation_systems', function(Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -100,8 +105,13 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('report_rs_services');
-        Schema::dropIfExists('report_rs_ip_addreses');
-        Schema::dropIfExists('report_rs_operation_systems');
+        Schema::dropIfExists('report_rs_services_person');
+        Schema::dropIfExists('report_rs_services_items');
+        Schema::dropIfExists('report_rs_services_ports');
+        Schema::dropIfExists('report_rs_services_networks');
+        Schema::dropIfExists('report_rs_services_ip_addresses');
+        Schema::dropIfExists('report_rs_services_operation_systems');
+
+
     }
 };

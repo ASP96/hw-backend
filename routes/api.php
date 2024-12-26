@@ -11,6 +11,7 @@ use App\Models\Profilactica;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\VendorModelController;
+use App\Http\Controllers\api\rs\services\OSController;
 
 
 Route::get('/user', function (Request $request) {
@@ -28,3 +29,10 @@ Route::apiResource('location', LocationController::class);
 Route::apiResource('organization', OrganizationController::class);
 Route::apiResource('profilactica', ProfilacticaController::class);
 Route::apiResource('profilactica/consumable', ConsumableController::class);
+
+// Report by services
+Route::apiResource('report/rs/services/', LocationController::class);
+Route::apiResource('report/rs/services/os', OSController::class);
+Route::apiResource('report/rs/services/{item}/port', LocationController::class);
+Route::apiResource('report/rs/services/{item}/network', LocationController::class);
+
