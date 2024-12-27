@@ -19,7 +19,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::apiResource('vendor', VendorController::class);
-Route::apiResource('vendor/{vendor}/models', VendorModelController::class);
+Route::apiResource('vendor/{vendor}/model', VendorModelController::class);
 Route::apiResource('person', PersonController::class);
 Route::apiResource('hardware-group', HardwareGroupController::class);
 

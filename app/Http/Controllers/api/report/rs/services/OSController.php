@@ -13,7 +13,8 @@ class OSController extends Controller
      */
     public function index()
     {
-        return OperationSystem::all()->sortBy('name');
+        return OperationSystem::orderBy('name')
+        ->get();
     }
 
     /**

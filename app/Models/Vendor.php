@@ -14,7 +14,8 @@ class Vendor extends Model
     protected $table = 'vendors';
     protected $fillable = [
         'id', // TODO: comment this in production
-        'head', 'country'
+        'name',
+        'country'
     ];
 
     /**

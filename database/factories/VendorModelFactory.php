@@ -17,7 +17,7 @@ class VendorModelFactory extends Factory
     public function definition(): array
     {
         return [
-            'head' => fake()->word()
+            'name' => fake()->word()
         ];
     }
 }

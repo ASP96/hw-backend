@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Vendor\ModelStoreRequest;
 use App\Http\Resources\VendorModelResource;
 use App\Http\Resources\VendorResource;
 use App\Models\Vendor;
@@ -24,9 +25,10 @@ class VendorModelController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ModelStoreRequest $request, Vendor $vendor)
     {
-        //
+        $model = $vendor->models()->create($request->all());
+        return $model;
     }
 
     /**
@@ -40,16 +42,25 @@ class VendorModelController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Vendor $vendor)
+    public function update(ModelStoreRequest $request, Vendor $vendor, VendorModel $model)
     {
-        //
+        $model->update($request->all());
+        return $model;
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Vendor $vendor)
+    public function destroy(Vendor $vendor, VendorModel $model)
     {
-        //
+        dd($model);
+        $id = $model->id;
+        $model->delete();
+        return response()->json(
+            [
+                'message'=> 'Model ID='.$id .' has been deleted'
+            ],
+            204
+        );
     }
 }

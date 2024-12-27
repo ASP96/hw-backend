@@ -16,7 +16,7 @@ return new class extends Migration
             //$table->bigInteger('vendor_id')->nullable();
             $table->foreignId('vendor_id')->nullable()->constrained()->nullOnDelete();
 
-            $table->string('head');
+            $table->string('name');
             $table->boolean('end_of_life')->default(false)->comment('Снята с производства');
 
             $table->timestamps();

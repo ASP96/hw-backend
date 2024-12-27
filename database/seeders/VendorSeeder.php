@@ -145,7 +145,7 @@ class VendorSeeder extends Seeder
                 echo "---" . $model . "\n";
                 $vnd->models()->save(
                     VendorModel::factory()->create([
-                        'head' => $model
+                        'name' => $model
                     ])
                 );
             }
