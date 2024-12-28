@@ -33,3 +33,10 @@ URL: /api/profilactica/
 - [+] store, `POST /api/profilactica/`
 - [+] update, `PUT /api/profilactica/{id}`
 - [+] destroy, `DELETE /api/profilactica/{id}`
+
+#### Организации. Таблица `organizations`
+URL: /api/profilactica/
+- [+] index, `GET /api/organization/`
+- [+] store, `POST /api/organization/`
+- [+] update, `PUT /api/organization/{id}`
+- [+] destroy, `DELETE /api/organization/{id}`
