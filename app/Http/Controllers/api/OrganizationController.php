@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OrganizationStoreRequest;
 use App\Http\Resources\OrganizationResource;
 use App\Models\Organization;
 use Illuminate\Http\Request;
@@ -24,9 +25,10 @@ class OrganizationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(OrganizationStoreRequest $request)
     {
-        dd($request);
+        $organization = Organization::create($request->all());
+        return $organization;
     }
 
     /**
@@ -37,27 +39,38 @@ class OrganizationController extends Controller
         return new OrganizationResource($organization);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(OrganizationStoreRequest $request, Organization $organization)
     {
-        //
+        $organization->update($request->all());
+        return $organization;
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Organization $organization)
     {
-        //
+        $id = $organization->id;
+        // die($organization->children()->count());
+        $child_count = $organization->children()->count();
+        if ($child_count > 0)
+        {
+            return response()->json(
+                [
+                    'message'=> "Organization ID={$id} has children organization ({$child_count}). Remove imposssible."
+                ],
+                405
+            );
+        }
+        //$organization->delete();
+        return response()->json(
+            [
+                'message'=> "Organization ID={$id} has been deleted"
+            ]
+        );
     }
 }
