@@ -59,8 +59,7 @@ class VendorModelController extends Controller
         return response()->json(
             [
                 'message'=> 'Model ID='.$id .' has been deleted'
-            ],
-            204
+            ]
         );
     }
 }

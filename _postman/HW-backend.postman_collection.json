@@ -282,6 +282,162 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Profilactica",
+			"item": [
+				{
+					"name": "Profilactica Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}api/profilactica/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"profilactica",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profilactica Store",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"jsonData = pm.response.json();",
+									"pm.environment.set(\"PROFILACTICA_ID\", jsonData.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Новый вендор\",\n    \"country\": \"Новая Зеландия\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/profilactica/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"profilactica",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profilactica View",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}api/profilactica/{{PROFILACTICA_ID}}",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"profilactica",
+								"{{PROFILACTICA_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profilactica Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Профилактика PM____\",\n    \"name_short\": \"Пр. PM__\",\n    \"name_full\": \"Профилактика из Postman___\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/profilactica/{{PROFILACTICA_ID}}/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"profilactica",
+								"{{PROFILACTICA_ID}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profilactica Update Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Профилактика PM____\",\n    \"name_short\": \"Короткое имя\",\n    \"name_full\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/profilactica/{{PROFILACTICA_ID}}/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"profilactica",
+								"{{PROFILACTICA_ID}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profilactica Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}api/profilactica/{{PROFILACTICA_ID}}",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"profilactica",
+								"{{PROFILACTICA_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
