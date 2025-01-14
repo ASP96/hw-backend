@@ -16,7 +16,8 @@ class VendorController extends Controller
     public function index()
     {
         return VendorResource::collection(
-            Vendor::all()
+            Vendor::with('models')
+                ->get()
             ->sortBy('name')
         );
     }
