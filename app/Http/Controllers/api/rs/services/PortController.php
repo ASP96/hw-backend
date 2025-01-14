@@ -1,23 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api\rs\services;
 
-use App\Http\Resources\OrganizationResource;
-use App\Models\Organization;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class OrganizationController extends Controller
+class PortController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return OrganizationResource::collection(
-            Organization::where('parent_id', '=', null)
-            ->orderBy('name')
-            ->get()
-        );
+        //
     }
 
     /**
@@ -39,9 +34,9 @@ class OrganizationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Organization $organization)
+    public function show(string $id)
     {
-        return new OrganizationResource($organization);
+        //
     }
 
     /**

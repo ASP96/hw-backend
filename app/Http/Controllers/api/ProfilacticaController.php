@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProfilacticaStoreRequest;
 use App\Http\Resources\ProfilacticaResource;
 use App\Models\Profilactica;
 use Illuminate\Http\Request;
@@ -21,19 +22,12 @@ class ProfilacticaController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProfilacticaStoreRequest $request)
     {
-        //
+        $profilactica = Profilactica::create($request->all());
+        return $profilactica;
     }
 
     /**
@@ -44,27 +38,28 @@ class ProfilacticaController extends Controller
         return new ProfilacticaResource($profilactica);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ProfilacticaStoreRequest $request, Profilactica $profilactica)
     {
-        //
+        $profilactica->update($request->all());
+        return $profilactica;
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Profilactica $profilactica)
     {
-        //
+        $id = $profilactica->id;
+        
+        $profilactica->delete();
+        return response()->json(
+            [
+                'message'=> "Profilactica ID={$id} has been deleted"
+            ]
+        );
     }
 }

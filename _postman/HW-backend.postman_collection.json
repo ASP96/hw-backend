@@ -1,0 +1,937 @@
+{
+	"info": {
+		"_postman_id": "7a249cae-7ba2-4eee-913b-2022558f630b",
+		"name": "HW-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25521408"
+	},
+	"item": [
+		{
+			"name": "Vendor",
+			"item": [
+				{
+					"name": "Model",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}api/vendor/:vendor_id/model/",
+									"host": [
+										"{{API_URL}}api"
+									],
+									"path": [
+										"vendor",
+										":vendor_id",
+										"model",
+										""
+									],
+									"variable": [
+										{
+											"key": "vendor_id",
+											"value": "{{VENDOR_ID}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Store",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"jsonData = pm.response.json();",
+											"pm.environment.set(\"MODEL_ID\", jsonData.id);",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"New model name\",\n    // \"vendor_id\": {{VENDOR_ID}},\n    \"end_of_life\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}api/vendor/:vendor_id/model/",
+									"host": [
+										"{{API_URL}}api"
+									],
+									"path": [
+										"vendor",
+										":vendor_id",
+										"model",
+										""
+									],
+									"variable": [
+										{
+											"key": "vendor_id",
+											"value": "{{VENDOR_ID}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "View",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}api/vendor/:vendor_id/model/:id",
+									"host": [
+										"{{API_URL}}api"
+									],
+									"path": [
+										"vendor",
+										":vendor_id",
+										"model",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "vendor_id",
+											"value": "{{VENDOR_ID}}"
+										},
+										{
+											"key": "id",
+											"value": "{{MODEL_ID}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"New Name of Mode2\",\n    \"end_of_life\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{API_URL}}api/vendor/:vendor_id/model/:id",
+									"host": [
+										"{{API_URL}}api"
+									],
+									"path": [
+										"vendor",
+										":vendor_id",
+										"model",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "vendor_id",
+											"value": "{{VENDOR_ID}}"
+										},
+										{
+											"key": "id",
+											"value": "{{MODEL_ID}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}api/vendor/:vendor_id/model/:id",
+									"host": [
+										"{{API_URL}}api"
+									],
+									"path": [
+										"vendor",
+										":vendor_id",
+										"model",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "vendor_id",
+											"value": "{{VENDOR_ID}}"
+										},
+										{
+											"key": "id",
+											"value": "{{MODEL_ID}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}api/vendor/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"vendor",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"jsonData = pm.response.json();",
+									"pm.environment.set(\"VENDOR_ID\", jsonData.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomCompanyName}}\",\n    \"country\": \"{{$randomCountry}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/vendor/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"vendor",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}api/vendor/:id",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"vendor",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{VENDOR_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomCompanyName}}\",\n    \"country\": \"{{$randomCountry}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/vendor/:id",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"vendor",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{VENDOR_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}api/vendor/:id",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"vendor",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{VENDOR_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profilactica",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}api/profilactica/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"profilactica",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"jsonData = pm.response.json();",
+									"pm.environment.set(\"PROFILACTICA_ID\", jsonData.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Профилактика PM\",\n    \"name_short\": \"Пр. PM\",\n    \"name_full\": \"Профилактика из Postman\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/profilactica/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"profilactica",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}api/profilactica/{{PROFILACTICA_ID}}",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"profilactica",
+								"{{PROFILACTICA_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Профилактика PM____\",\n    \"name_short\": \"Пр. PM__\",\n    \"name_full\": \"Профилактика из Postman___\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/profilactica/{{PROFILACTICA_ID}}/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"profilactica",
+								"{{PROFILACTICA_ID}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Профилактика PM____\",\n    \"name_short\": \"Короткое имя\",\n    \"name_full\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/profilactica/{{PROFILACTICA_ID}}/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"profilactica",
+								"{{PROFILACTICA_ID}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}api/profilactica/{{PROFILACTICA_ID}}",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"profilactica",
+								"{{PROFILACTICA_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Organization",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}api/organization/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"organization",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"jsonData = pm.response.json();",
+									"pm.environment.set(\"ORGANIZATION_ID\", jsonData.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomCompanyName}}\",\n    \"name_full\": \"{{$randomCompanyName}} - fullname\",\n    \"parent_id\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/organization/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"organization",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store Children",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomCompanyName}}\",\n    \"name_full\": \"{{$randomCompanyName}} - fullname\",\n    \"parent_id\": {{ORGANIZATION_ID}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/organization/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"organization",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}api/organization/:id",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"organization",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{ORGANIZATION_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomCompanyName}}\",\n    \"name_full\": \"{{$randomCompanyName}} - fullname\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/organization/:id",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"organization",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{ORGANIZATION_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{$randomCompanyName}}\",\n    \"name_full\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/organization/:id",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"organization",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{ORGANIZATION_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}api/organization/:id",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"organization",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{ORGANIZATION_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HardwareGroup",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}api/hardware-group/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"hardware-group",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"jsonData = pm.response.json();",
+									"pm.environment.set(\"HARDWARE_GROUP_ID\", jsonData.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Телефон\",\n    \"parent_id\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/hardware-group/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"hardware-group",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store Children",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"// jsonData = pm.response.json();",
+									"// pm.environment.set(\"ORGANIZATION_ID\", jsonData.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Мобильный телефон\",\n    \"parent_id\": {{HARDWARE_GROUP_ID}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/hardware-group/",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"hardware-group",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}api/hardware-group/:id",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"hardware-group",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{HARDWARE_GROUP_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Новое имя организации\",\n    \"name_full\": \"Новое полное имя организации\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/hardware-group/:id",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"hardware-group",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{HARDWARE_GROUP_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Профилактика PM____\",\n    \"name_short\": \"Короткое имя\",\n    \"name_full\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}api/hardware-group/:id",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"hardware-group",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{HARDWARE_GROUP_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}api/hardware-group/:id",
+							"host": [
+								"{{API_URL}}api"
+							],
+							"path": [
+								"hardware-group",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{HARDWARE_GROUP_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -14,7 +14,9 @@ class Organization extends Model
 
     protected $fillable = [
         'id', // TODO: comment this in production
-        'name', 'name_full'
+        'parent_id',
+        'name',
+        'name_full'
     ];
 
     /**

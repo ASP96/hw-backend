@@ -4,7 +4,7 @@ namespace App\Http\Requests\Vendor;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VendorStoreRequest extends FormRequest
+class ModelStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,9 @@ class VendorStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name" => ["required", "string"],
-            "country" => ["nullable", "string"],
+            "name" => ["required","string"],
+            // "vendor_id" => ["required","exists:vendors,id"],
+            "end_of_life" => ["nullable", "boolean"],
         ];
     }
 }

@@ -18,7 +18,8 @@ class VendorModel extends Model
     protected $table = 'vendor_models';
 
     protected $fillable = [
-        'vendor_id', 'head',
+        'vendor_id',
+        'name',
         'end_of_life'
     ];
 
